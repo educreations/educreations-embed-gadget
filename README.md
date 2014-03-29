@@ -1,4 +1,4 @@
-educreations-embed-gadget
+Educreations Embed Gadget - Most likely with iframe!
 =========================
 
-An embed gadget using the latest iframe launcher
+Note: gadget.js cannot 'define' any files within the asset dir due to unknown causes within the player.

@@ -1,0 +1,13 @@
+{
+  "username": "versal",
+  "name": "educreations-embed-gadget",
+  "version": "0.0.1",
+  "title": "Educreations",
+  "description": "Embed video lessons from Educreations",
+  "author": "Versal",
+  "defaultConfig": {
+    "__launcher": "iframe",
+    "username": "versal"
+  },
+  "defaultUserState": {}
+}

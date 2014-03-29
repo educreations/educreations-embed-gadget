@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "requirejs": "~2.1.9",
+    "grunt": "~0.4.2",
+    "grunt-mocha": "~0.4.7",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-stylus": "~0.11.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-handlebars": "*",
+    "nib": "~1.0.1"
+  }
+}
