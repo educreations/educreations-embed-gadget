@@ -14,7 +14,7 @@
   };
 
   Gadget.prototype.initialize = function () {
-    console.log('initialize');
+    // console.log('initialize');
 
     //the line belows starts a backbone app
     window.Educreations.init(this, this.el);
