@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Example Mocha Test</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" type="text/css" charset="utf-8" />
+</head>
+<body>
+    <!-- Polyfille for bind. Necessary for Phantomjs -->
+    <script type="text/javascript" src="./test/bind_polyfill.js"></script>
+
+    <!-- Required for browser reporter -->
+    <div id="mocha"></div>
+
+    <!-- mocha -->
+    <script src="../node_modules/mocha/mocha.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        // This will be overridden by mocha-helper if you run with grunt
+        mocha.setup('bdd');
+    </script>
+
+    <!-- Include your assertion lib of choice -->
+    <script src="../node_modules/chai/chai.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        // Setup chai
+        var expect = chai.expect;
+    </script>
+
+    <!-- Include anything you want to test -->
+    <!-- Start required files for gadgets -->
+    <div class='main-app'></div>
+    <script type="text/javascript" src='scripts/lib/underscore-min.js'></script>
+    <script type="text/javascript" src='scripts/lib/jquery-1.11.0.min.js'></script>
+    <script type="text/javascript" src='scripts/lib/backbone-min.js'></script>
+    <script type="text/javascript" src='scripts/lib/handlebars-v1.3.0.js'></script>
+    <script type="text/javascript" src='templates.js'></script>
+    <script type="text/javascript" src='scripts/app_global.js'></script>
+    <script type="text/javascript" src='scripts/app_view.js'></script>
+    <script type="text/javascript" src='scripts/gadget_main.js'></script>
+    <!-- End required files for gadgets. Should have used AMD -->
+
+    <!-- Spec files -->
+    <script type="text/javascript" src="./test/main_spec.js"></script>
+
+    <!-- run mocha -->
+    <script type="text/javascript" charset="utf-8">
+        // If tests run in a real browser
+        // Can alternatively do a check on window.PHANTOMJS
+        if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+            mocha
+                .run();
+        }
+    </script>
+</body>
+</html>
