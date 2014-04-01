@@ -7,11 +7,6 @@
   var Gadget = function(options) {
     this.el = options.el;
 
-    this.config = {
-      name: 'Author',
-      value: 2
-    };
-
     this.initialize();
 
     //todo
