@@ -61,14 +61,15 @@
   Gadget.prototype.sendMessage = function (msg) {
     var message = JSON.stringify(msg);
     window.parent.postMessage(message, '*');
-
-    console.log([
-      'toPlayer', msg.event, msg.data
-    ]);
+    // console.log([
+    //   'toPlayer', msg.event, msg.data
+    // ]);
   };
 
   //starting point of the gadget
-  new Gadget({
+  //expose a global variable for testing purpose
+  //probablly should have used AMD
+  window.educreationsGadget = new Gadget({
     el: document.querySelector('.main-app')
   });
 
