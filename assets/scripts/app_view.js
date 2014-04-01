@@ -7,18 +7,8 @@ Educreations.Views.AppView = Backbone.View.extend({
   },
 
   initialize: function(){
-    //set up default embed code
-    var defaultEmbedCode = '<iframe width="480" height="300" src="'+
-      'https://www.educreations.com/lesson/embed/444280/" '+
-      'frameborder="0" webkitAllowFullScreen mozallowfullscreen '+
-      'allowfullscreen></iframe>';
-
-    //this.model is a Backbone model in memory, meaning not persisted
-    //it can be replaced by a simple object if you don't need change events
-    if(typeof this.model.get('embedCode') === undefined ||
-      $.trim(this.model.get('embedCode')) === '') {
-      this.model.set('embedCode', defaultEmbedCode);
-    }
+    //house keeping
+    _.bindAll(this, 'render', 'renderEmbedCode');
 
     //author or leaner
     this.isEditable = false;
@@ -29,26 +19,41 @@ Educreations.Views.AppView = Backbone.View.extend({
 
     //events with servers
     this.listenTo(this.ventFromServer, 'attached', function(){
-      //set default configuration
       // console.log('attached');
       this.setPropertySheet();
       this.renderEmbedCode();
     });
+
     this.listenTo(this.ventFromServer, 'attributesChanged', function(messageData){
       // console.log('attributesChanged', messageData);
       if(messageData && messageData.embedCode){
         this.model.set('embedCode', messageData.embedCode);
+      } else {
+        //manually set up default for the fist time
+        //this.model is a Backbone model in memory, meaning not persisted
+        //it can be replaced by a simple object if you don't need change events
+        //local temp changes
+        if(typeof this.model.get('embedCode') === undefined ||
+          $.trim(this.model.get('embedCode')) === '') {
+          this.model.set('embedCode', this.getDefaultEmbedCode());
+        }
+        //persist changes to server
+        this.ventToServer.trigger('setAttributes', {
+          embedCode: this.model.get('embedCode')
+        });
       }
     });
+
     this.listenTo(this.ventFromServer, 'setEditable', function(editable){
-      console.log('setEditable', editable);
+      // console.log('setEditable', editable);
       this.isEditable = editable;
     });
 
-    //events with local backbone model
-    this.listenTo(this.model, 'change', function(data){
-      console.log('change', data);
-      this.renderEmbedCode();
+    //lazy render with local backbone model
+    var lazyRenderEmbedCode = _.debounce(this.renderEmbedCode, 300);
+    this.listenTo(this.model, 'change', function(){
+      // console.log('change');
+      lazyRenderEmbedCode();
     });
 
   },
@@ -92,8 +97,16 @@ Educreations.Views.AppView = Backbone.View.extend({
 
   render: function(){
     this.$el.html( this.template() );
-
     this.delegateEvents();
     return this;
+  },
+
+  getDefaultEmbedCode: function(){
+    //set up default embed code
+    var defaultEmbedCode = '<iframe width="480" height="300" src="'+
+      'https://www.educreations.com/lesson/embed/444280/" '+
+      'frameborder="0" webkitAllowFullScreen mozallowfullscreen '+
+      'allowfullscreen></iframe>';
+    return defaultEmbedCode;
   }
 });
