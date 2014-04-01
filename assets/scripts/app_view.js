@@ -4,7 +4,6 @@ Educreations.Views.AppView = Backbone.View.extend({
   template: JST["assets/templates/app.hbs"],
 
   events:{
-    "click .test": "onTest"
   },
 
   initialize: function(){
@@ -33,6 +32,7 @@ Educreations.Views.AppView = Backbone.View.extend({
       //set default configuration
       // console.log('attached');
       this.setPropertySheet();
+      this.renderEmbedCode();
     });
     this.listenTo(this.ventFromServer, 'attributesChanged', function(messageData){
       // console.log('attributesChanged', messageData);
@@ -48,6 +48,7 @@ Educreations.Views.AppView = Backbone.View.extend({
     //events with local backbone model
     this.listenTo(this.model, 'change', function(data){
       console.log('change', data);
+      this.renderEmbedCode();
     });
 
   },
@@ -61,12 +62,32 @@ Educreations.Views.AppView = Backbone.View.extend({
     });
   },
 
-  onTest: function(){
-    console.log('test', this.model.attributes);
+  /**
+   * a stubbed sanitization function for now
+   * @param  {HTML string} input
+   * @return {HTML string} already sanitized
+   * todo
+   * needs to implement this function
+   */
+  sanitizeStub: function(input){
+    return input;
   },
 
   renderEmbedCode: function(){
-    this.$el.find('.embed-container').html( this.model.get('embedCode') );
+    var sanitizedHtml = this.sanitizeStub( this.model.get('embedCode') );
+
+    var sanitizedIframeDom = $('<div>'+ sanitizedHtml + '</div>').find('iframe').get(0);
+
+    if(sanitizedIframeDom){
+      //iframe here
+      this.$el.find('.gadget-embed').html( sanitizedIframeDom );
+
+    } else {
+      //no iframe, error out
+      //note invoking the compiled error template here
+      this.$el.find('.gadget-embed').html( JST["assets/templates/error.hbs"]() );
+    }
+
   },
 
   render: function(){
