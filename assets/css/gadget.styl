@@ -1,0 +1,29 @@
+.gadget-embed{
+  font-size: 14px;
+  font-family: Georgia, serif;
+  line-height: 22px;
+
+  /* success */
+  iframe {
+    width: 724px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: transparent; /*fix IE11 dark border*/
+  }
+
+  /* fail */
+  .gadget-embed-not-valid{
+    display: block;
+    text-align: center;
+    background: #f2f1ed;
+    padding: 20px;
+    font: 17px 'AvenirNextLTPro-Regular','Helvetica Neue',Helvetica,Arial,sans-serif;
+    cursor: pointer;
+
+    .gadget-embed-not-valid-undefined-url{
+      color: #c7c3be;
+    }
+  }
+
+}
