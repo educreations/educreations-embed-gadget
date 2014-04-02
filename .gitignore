@@ -2,4 +2,3 @@ dist
 bundle.zip
 node_modules
 .DS_Store
-assets/templates.js
