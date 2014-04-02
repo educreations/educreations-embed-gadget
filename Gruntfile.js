@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     paths: {
-      index: 'assets'
+      index: '.'
     },
     handlebars: {
       compile: {
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
           namespace: 'JST'
         },
         files: {
-          '<%= paths.index %>/templates.js' : ['<%= paths.index %>/templates/*.hbs']
+          '<%= paths.index %>/templates.js' : ['templates/*.hbs']
         }
       }
     },
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
     },
     mocha: {
       test: {
-        src: ['assets/test_runner.html'],
+        src: ['<%= paths.index %>/test_runner.html'],
         options: {
           reporter: 'Spec',
           log: true,
@@ -53,14 +53,14 @@ module.exports = function(grunt) {
         tasks: ['stylus']
       },
       tests: {
-        files: ['assets/test/**/*.js'],
+        files: ['<%= paths.index %>/test/**/*.js'],
         tasks: ['mocha']
       }
     }
   });
 
   grunt.registerTask('createDefaultTemplate', function () {
-    grunt.file.write('./assets/templates.js', 'this.JST = this.JST || {};');
+    grunt.file.write('./templates.js', 'this.JST = this.JST || {};');
     //todo, remove hard coded path
   });
 
