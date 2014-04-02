@@ -5,8 +5,8 @@
   "title": "Educreations",
   "description": "Embed video lessons from Educreations",
   "author": "Versal",
+  "launcher": "iframe",
   "defaultConfig": {
-    "__launcher": "iframe",
     "username": "versal",
     "embedCode": "<iframe width='480' height='300' src='https://www.educreations.com/lesson/embed/444280/' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>"
   },
