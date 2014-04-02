@@ -1,6 +1,13 @@
 Educreations Embed Gadget
 =========================
 
+### How to use:
+
+    git clone https://github.com/Versal/educreations-embed-gadget.git
+    cd educreations-embed-gadget
+    versal preview
+    [go to localhost:3000](http://localhost:3000/)
+
 ### Basic use case:
 
 -   Authors can embed Educreations videos inside the course
