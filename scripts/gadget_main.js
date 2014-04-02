@@ -27,18 +27,10 @@
 
       var msgData = msg.data;
 
-      //parse for string response
+      //return for string response
       if(typeof msgData === 'string') {
-        try {
-          msgData = JSON.parse(msgData);
-        }
-        catch (e) {
-          console.log('Unable to parse the server response', e);
-          return;
-          //todo
-          //make sure no name collision with errorParsing event
-          //handle exceptions
-        }
+        console.log('Error. Server sends string instead of object.', msgData);
+        return;
       }
 
       //relay events to appView
@@ -59,8 +51,7 @@
   };
 
   Gadget.prototype.sendMessage = function (msg) {
-    var message = JSON.stringify(msg);
-    window.parent.postMessage(message, '*');
+    window.parent.postMessage(msg, '*');
     // console.log([
     //   'toPlayer', msg.event, msg.data
     // ]);
