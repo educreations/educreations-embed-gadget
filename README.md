@@ -21,12 +21,7 @@ Educreations Embed Gadget
 
     -   Authors can also adjust the embed code if necessary
 
-### To compile stylus to css
-
-    npm install
-    grunt
-
-### To test
+### To compile Stylus to CSS, test with Mocha and compile Handlebar templates
 
     npm install
     grunt
