@@ -1,4 +1,4 @@
-/*global Educreations, $, _, Backbone, JST */
+/*global Educreations, $, _, Backbone */
 
 Educreations.Views.AppView = Backbone.View.extend({
   template: function() {
