@@ -28,8 +28,3 @@
 ### Changelog
 
 -   Tue Apr 01 2014. v0.0.1. Embed Educreations videos with iFrame code.
-
-### Know issues
-
--   When the iframe code is invalid, hidding in learner view doesn't work yet
--   The error message might not show up when the embedcode is blank

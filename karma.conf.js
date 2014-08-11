@@ -5,9 +5,7 @@ module.exports = function(config) {
       'bower_components/underscore/underscore.js',
       'bower_components/jquery/dist/jquery.min.js',
       'bower_components/backbone/backbone.js',
-      'scripts/app_global.js',
-      'scripts/app_view.js',
-      'scripts/gadget_main.js',
+      'gadget.js',
       'test/main_spec.js'
     ],
     reporters: ['dots'],
