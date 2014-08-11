@@ -1,5 +1,4 @@
-Educreations Embed Gadget
-=========================
+# Educreations Embed Gadget [![Build Status](https://travis-ci.org/Versal/educreations-embed-gadget.svg?branch=master)](https://travis-ci.org/Versal/educreations-embed-gadget)
 
 ### How to use:
 
@@ -21,10 +20,10 @@ Educreations Embed Gadget
 
     -   Authors can also adjust the embed code if necessary
 
-### To test with Mocha
+### To test
 
     npm install
-    grunt
+    npm test
 
 ### Changelog
 
