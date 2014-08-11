@@ -48,6 +48,8 @@
         data: messageData
       });
     }, this);
+
+    this.appView.ventToServer.trigger('startListening');
   };
 
   Gadget.prototype.sendMessage = function (msg) {
