@@ -21,7 +21,7 @@ Educreations Embed Gadget
 
     -   Authors can also adjust the embed code if necessary
 
-### To compile Stylus to CSS, test with Mocha and compile Handlebar templates
+### To test with Mocha
 
     npm install
     grunt
@@ -33,4 +33,4 @@ Educreations Embed Gadget
 ### Know issues
 
 -   When the iframe code is invalid, hidding in learner view doesn't work yet
--   The error message might not show up when the embedcode is blank 
+-   The error message might not show up when the embedcode is blank
