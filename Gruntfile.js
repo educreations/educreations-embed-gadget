@@ -27,14 +27,9 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('createDefaultTemplate', function () {
-    grunt.file.write('./templates.js', 'this.JST = this.JST || {};');
-    //todo, remove hard coded path
-  });
-
   grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['createDefaultTemplate', 'mocha', 'watch']);
+  grunt.registerTask('default', ['mocha', 'watch']);
 };
