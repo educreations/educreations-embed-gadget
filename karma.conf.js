@@ -6,7 +6,7 @@ module.exports = function(config) {
       'bower_components/versal-player-api/index.js',
       'bower_components/jquery/dist/jquery.min.js',
       'gadget.js',
-      'test/main_spec.js'
+      'gadget_spec.js'
     ],
     reporters: ['dots'],
     port: 9876,
