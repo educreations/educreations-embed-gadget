@@ -3,7 +3,7 @@
 
   player.addEventListener('attributesChanged', function(attributes) {
     // TODO: sanitization
-    var iframe = $('<div>' + attributes.embedCode + '</div>').find('iframe').get(0);
+    var iframe = $('<div>' + (attributes.embedCode || '') + '</div>').find('iframe').get(0);
 
     if(iframe) {
       $('body').html(iframe);
@@ -11,7 +11,6 @@
       $('body').html('<div class="gadget-embed-not-valid">Please specify the embed code</div>');
     }
   });
-
 
   player.setPropertySheetAttributes({
     embedCode: {

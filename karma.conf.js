@@ -4,9 +4,7 @@ module.exports = function(config) {
     files: [
       'bower_components/eventEmitter/EventEmitter.js',
       'bower_components/versal-player-api/index.js',
-      'bower_components/underscore/underscore.js',
       'bower_components/jquery/dist/jquery.min.js',
-      'bower_components/backbone/backbone.js',
       'gadget.js',
       'test/main_spec.js'
     ],
