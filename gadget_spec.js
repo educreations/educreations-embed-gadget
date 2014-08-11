@@ -19,5 +19,14 @@
         done();
       }, 100);
     });
+
+    it('doesnt embed other embed codes', function(done) {
+      window.postMessage({event: 'attributesChanged', data: {embedCode: "<iframe width=\"480\" height=\"300\" src=\"https://www.foo.com/444280/\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>"}}, '*');
+
+      setTimeout(function() {
+        chai.expect(document.body.textContent).to.contain("Please specify the embed code");
+        done();
+      }, 100);
+    });
   });
 })();

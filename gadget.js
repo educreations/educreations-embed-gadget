@@ -2,11 +2,10 @@
   var player = new VersalPlayerAPI();
 
   player.addEventListener('attributesChanged', function(attributes) {
-    // TODO: sanitization
-    var iframe = $('<div>' + (attributes.embedCode || '') + '</div>').find('iframe').get(0);
+    var embedCodeMatches = (attributes.embedCode || '').match(/educreations.com\/lesson\/embed\/([0-9]+)\//);
 
-    if(iframe) {
-      $('body').html(iframe);
+    if(embedCodeMatches) {
+      $('body').html('<iframe width="480" height="300" src="https://www.educreations.com/lesson/embed/' + embedCodeMatches[1] + '/" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>');
     } else {
       $('body').html('<div class="gadget-embed-not-valid">Please specify the embed code</div>');
     }
