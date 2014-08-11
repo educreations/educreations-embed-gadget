@@ -1,5 +1,4 @@
-Educreations Embed Gadget
-=========================
+# Educreations Embed Gadget [![Build Status](https://travis-ci.org/Versal/educreations-embed-gadget.svg?branch=master)](https://travis-ci.org/Versal/educreations-embed-gadget)
 
 ### How to use:
 
