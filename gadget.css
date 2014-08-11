@@ -1,16 +1,18 @@
-.gadget-embed {
+body {
   font-size: 14px;
   font-family: Georgia, serif;
   line-height: 22px;
 }
-.gadget-embed iframe {
+
+iframe {
   width: 724px;
   border: 0;
   padding: 0;
   margin: 0;
   color: transparent; /* fix IE11 dark border */
 }
-.gadget-embed .gadget-embed-not-valid {
+
+.gadget-embed-not-valid {
   display: block;
   text-align: center;
   background: #f2f1ed;
@@ -18,6 +20,7 @@
   font: 17px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
-.gadget-embed .gadget-embed-not-valid .gadget-embed-not-valid-undefined-url {
+
+.gadget-embed-not-valid-undefined-url {
   color: #c7c3be;
 }
