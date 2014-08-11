@@ -18,7 +18,7 @@ Educreations.Views.AppView = Backbone.View.extend({
     this.ventToServer = _.extend({}, Backbone.Events);
 
     //similar to dom ready, fired with the gadget is attached to dom
-    this.listenTo(this.ventFromServer, 'attached', function(){
+    this.listenTo(this.ventFromServer, 'editableChanged', function(){
       // console.log('attached');
       this.setPropertySheet();
     });
