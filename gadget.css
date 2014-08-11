@@ -2,6 +2,9 @@ body {
   font-size: 14px;
   font-family: Georgia, serif;
   line-height: 22px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 iframe {
