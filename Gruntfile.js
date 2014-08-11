@@ -15,17 +15,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    stylus: {
-      compile: {
-        options: {
-          compress: false,
-          use: [ require('nib') ]
-        },
-        files: {
-          '<%= paths.index %>/gadget.css': '<%= paths.index %>/css/gadget.styl'
-        }
-      }
-    },
     mocha: {
       test: {
         src: ['<%= paths.index %>/test_runner.html'],
@@ -47,11 +36,6 @@ module.exports = function(grunt) {
         ],
         tasks: ['handlebars']
       },
-      styles: {
-        //re-compile to css when .styl files change
-        files: ['<%= paths.index %>/css/**/*.styl'],
-        tasks: ['stylus']
-      },
       tests: {
         files: ['<%= paths.index %>/test/**/*.js'],
         tasks: ['mocha']
@@ -65,10 +49,9 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-mocha');
-  grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default', ['createDefaultTemplate', 'handlebars', 'stylus', 'mocha', 'watch']);
+  grunt.registerTask('default', ['createDefaultTemplate', 'handlebars', 'mocha', 'watch']);
 };

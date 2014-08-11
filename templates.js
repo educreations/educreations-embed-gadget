@@ -15,5 +15,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"gadget-embed-not-valid\">\n  <div class=\"gadget-embed-not-valid-undefined-url\">\n    Please specify the embed code\n  </div>\n</div>\n";
+  return "<div class=\"gadget-embed-not-valid\">\n  Please specify the embed code\n</div>\n";
   });
