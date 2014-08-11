@@ -20,5 +20,5 @@
     }
   });
   player.startListening();
-
+  player.watchBodyHeight();
 })();
