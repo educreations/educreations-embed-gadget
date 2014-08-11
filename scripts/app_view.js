@@ -1,7 +1,9 @@
-/*global Educreations, $, _, Backbone, JST */
+/*global Educreations, $, _, Backbone */
 
 Educreations.Views.AppView = Backbone.View.extend({
-  template: JST["templates/app.hbs"],
+  template: function() {
+    return '<div class="gadget-embed"></div>';
+  },
 
   events:{
   },
@@ -84,7 +86,7 @@ Educreations.Views.AppView = Backbone.View.extend({
     } else {
       //no iframe, error out
       //note invoking the compiled error template here
-      this.$el.find('.gadget-embed').html( JST["templates/error.hbs"]() );
+      this.$el.find('.gadget-embed').html('<div class="gadget-embed-not-valid">Please specify the embed code</div>');
 
       //hide the gadet in learner view if it is in error state
       if(!this.isEditable){

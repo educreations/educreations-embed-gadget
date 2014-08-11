@@ -5,16 +5,6 @@ module.exports = function(grunt) {
     paths: {
       index: '.'
     },
-    handlebars: {
-      compile: {
-        options: {
-          namespace: 'JST'
-        },
-        files: {
-          '<%= paths.index %>/templates.js' : ['templates/*.hbs']
-        }
-      }
-    },
     mocha: {
       test: {
         src: ['<%= paths.index %>/test_runner.html'],
@@ -29,12 +19,6 @@ module.exports = function(grunt) {
     watch: {
       options: {
         spawn: false
-      },
-      handlebars: {
-        files: [
-          '<%= paths.index %>/templates/*.hbs'
-        ],
-        tasks: ['handlebars']
       },
       tests: {
         files: ['<%= paths.index %>/test/**/*.js'],
@@ -51,7 +35,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default', ['createDefaultTemplate', 'handlebars', 'mocha', 'watch']);
+  grunt.registerTask('default', ['createDefaultTemplate', 'mocha', 'watch']);
 };
