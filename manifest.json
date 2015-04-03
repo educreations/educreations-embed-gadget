@@ -3,7 +3,7 @@
   "name": "educreations-embed-gadget",
   "version": "0.0.4",
   "title": "Educreations",
-  "description": "Embed video lessons from educreations.com",
+  "description": "Embed Educreations lessons into your course.",
   "author": "Versal",
   "launcher": "iframe",
   "defaultConfig": {
