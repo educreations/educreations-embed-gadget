@@ -12,6 +12,8 @@ Then got to [localhost:3000](http://localhost:3000/)
 
 ### To test
 
+    npm install -g bower
+    bower install
     npm install
     npm test
 
