@@ -19,6 +19,7 @@ Then got to [localhost:3000](http://localhost:3000/)
 
 ### Changelog
 
+- **0.0.5** Allow private creations
 - **0.0.4** Added `index.html`
 - **0.0.3** Skipped version (testing)
 - **0.0.2** Code cleanup
