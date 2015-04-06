@@ -20,6 +20,24 @@
       }, 100);
     });
 
+    it('embeds educreations embed codes with secret', function(done) {
+      window.postMessage({event: 'attributesChanged', data: {embedCode: "<iframe width=\"480\" height=\"300\" src=\"https://www.educreations.com/lesson/embed/444280/?s=ZC5HYy\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>"}}, '*');
+
+      setTimeout(function() {
+        chai.expect(document.body.innerHTML).to.contain("<iframe");
+        done();
+      }, 100);
+    });
+
+    it('embeds educreations embed codes with secret and ref', function(done) {
+      window.postMessage({event: 'attributesChanged', data: {embedCode: "<iframe width=\"480\" height=\"300\" src=\"https://www.educreations.com/lesson/embed/444280/?ref=embed&s=ZC5HYy\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>"}}, '*');
+
+      setTimeout(function() {
+        chai.expect(document.body.innerHTML).to.contain("<iframe");
+        done();
+      }, 100);
+    });
+
     it('doesnt embed other embed codes', function(done) {
       window.postMessage({event: 'attributesChanged', data: {embedCode: "<iframe width=\"480\" height=\"300\" src=\"https://www.foo.com/444280/\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>"}}, '*');
 
